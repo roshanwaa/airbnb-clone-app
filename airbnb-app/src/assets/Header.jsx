@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <div>
       <header className="flex justify-between">
-        <a href="#" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <svg
             className={` text-primary ${classes.header_logo}`}
             fill="none"

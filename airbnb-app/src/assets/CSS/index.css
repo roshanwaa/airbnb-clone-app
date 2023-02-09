@@ -13,8 +13,8 @@ button {
 }
 
 button.primary {
-  @apply bg-primary p-2 w-full text-white rounded-2xl;
+  @apply bg-primary p-2 w-full text-white rounded-2xl my-2;
 }
 button.primary:hover {
-  @apply bg-primary_hover p-2 w-full text-white rounded-2xl;
+  @apply bg-primary_hover;
 }
