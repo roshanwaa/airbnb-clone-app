@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import { Login } from './Login';
 
 export const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const registerUserForm = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post('/register', {
+        name,
+        email,
+        password,
+      });
+
+      alert('Registration successfully Complete. Now you can login');
+    } catch (e) {
+      console.log(e + 'Registration Failed');
+    }
+    // setName('');
+    // setEmail('');
+    // setPassword('');
+  };
   const nameChangeHandler = (setValue) => {
     setName(setValue.target.value);
   };
@@ -17,28 +35,11 @@ export const Register = () => {
     setPassword(setValue.target.value);
   };
 
-  const registerUserForm = (event) => {
-    event.preventDefault();
-    axios.post('/test', {
-      name,
-      email,
-      password,
-    });
-
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
-
   return (
     <div className="mt-4 grow flex items-center justify-around">
       <div className="mb-64">
         <h1 className="text-3xl text-center mb-4">Register</h1>
-        <form
-          action=""
-          className="max-w-md mx-auto"
-          onSubmit={registerUserForm}
-        >
+        <form className="max-w-md mx-auto" onSubmit={registerUserForm}>
           {/* Imp to className to "peer" in input section */}
           <input
             type="text"
