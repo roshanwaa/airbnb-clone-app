@@ -19,12 +19,13 @@ export const Register = () => {
 
       alert('Registration successfully Complete. Now you can login');
     } catch (e) {
-      console.log(e + 'Registration Failed');
+      console.log(e + ' Registration Failed');
     }
     // setName('');
     // setEmail('');
     // setPassword('');
   };
+
   const nameChangeHandler = (setValue) => {
     setName(setValue.target.value);
   };
