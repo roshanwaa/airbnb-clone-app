@@ -54,24 +54,20 @@ app.post('/login', async (req, res) => {
   });
 
   if (userDoc) {
-    if (userDoc) {
-      const passOk = bcrypt.compareSync(password, userDoc.password);
-      if (passOk) {
-        jsonWebToken.sign(
-          { email: userDoc.email, id: userDoc._id },
-          jwtSecret,
-          {},
-          (error, createdToken) => {
-            if (error) throw error;
+    const passOk = bcrypt.compareSync(password, userDoc.password);
+    if (passOk) {
+      jsonWebToken.sign(
+        { email: userDoc.email, id: userDoc._id },
+        jwtSecret,
+        {},
+        (error, createdToken) => {
+          if (error) throw error;
 
-            res.cookie('token', createdToken).json('Pass ok');
-          }
-        );
-      } else {
-        res.cookie('token', userDoc.token).json('Pass not ok');
-      }
+          res.cookie('token', createdToken).json('Pass ok');
+        }
+      );
     } else {
-      res.status(422).json('not found');
+      res.status(422).json('pass not ok');
     }
   } else {
     res.json('not found');
