@@ -49,10 +49,7 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  const userDoc = await User.findOne({
-    email,
-  });
-
+  const userDoc = await User.findOne({ email });
   if (userDoc) {
     const passOk = bcrypt.compareSync(password, userDoc.password);
     if (passOk) {
@@ -60,18 +57,23 @@ app.post('/login', async (req, res) => {
         { email: userDoc.email, id: userDoc._id },
         jwtSecret,
         {},
-        (error, createdToken) => {
+        (error, token) => {
           if (error) throw error;
 
-          res.cookie('token', createdToken).json('Pass ok');
+          res.cookie('token', token).json(userDoc);
         }
       );
     } else {
       res.status(422).json('pass not ok');
     }
   } else {
-    res.json('not found');
+    res.json('User not found');
   }
+});
+
+app.get('/profile', (req, res) => {
+  const { token } = req.cookies;
+  res.json({ token });
 });
 
 app.listen(4000, function () {

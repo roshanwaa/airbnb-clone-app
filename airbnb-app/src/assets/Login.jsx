@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import React, { useContext, useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { UserCreateContext } from '../UserContextProvider';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [redirectHomePage, setRedirectHomePage] = useState(false);
+
+  const { setUser } = useContext(UserCreateContext);
 
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
 
     try {
-      await axios.post('/login', {
+      const { data } = await axios.post('/login', {
         email,
         password,
       });
-      console.log('Login Successful');
+
+      setUser(data);
+      alert('Login Successful');
+      setRedirectHomePage(true);
     } catch (e) {
       console.log(e + ' Login Failed');
     }
 
-    // setEmail('');
-    // setPassword('');
+    setEmail('');
+    setPassword('');
   };
 
   const emailChangeHandler = (value) => {
@@ -29,6 +36,10 @@ export const Login = () => {
   const passwordChangeHandler = (value) => {
     setPassword(value.target.value);
   };
+
+  if (redirectHomePage) {
+    return <Navigate to={'/'} />;
+  }
 
   return (
     <div className="mt-4 grow flex items-center justify-around">

@@ -19,7 +19,8 @@ export const Register = () => {
 
       alert('Registration successfully Complete. Now you can login');
     } catch (e) {
-      console.log(e + ' Registration Failed');
+      console.log(e);
+      console.log(' Registration Failed');
     }
     // setName('');
     // setEmail('');
