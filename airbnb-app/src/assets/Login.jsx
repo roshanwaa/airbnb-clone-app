@@ -9,7 +9,6 @@ export const Login = () => {
   const [redirectHomePage, setRedirectHomePage] = useState(false);
 
   const { setUser } = useContext(UserCreateContext);
-
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
 
@@ -50,16 +49,12 @@ export const Login = () => {
           className="max-w-md mx-auto"
           onSubmit={loginSubmitHandler}
         >
-          {/* Imp to className to "peer" in input section */}
           <input
             type="email"
             placeholder="Enter your email"
             value={email}
             onChange={emailChangeHandler}
           />
-          {/* <p className="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-            Please provide a valid email address.
-          </p> */}
           <input
             type="password"
             placeholder="Enter your Password"
