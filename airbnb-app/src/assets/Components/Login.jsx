@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { UserCreateContext } from '../UserContextProvider';
+import { UserCreateContext } from '../../UserContextProvider';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -25,8 +25,8 @@ export const Login = () => {
       console.log(e + ' Login Failed');
     }
 
-    // setEmail('');
-    // setPassword('');
+    setEmail('');
+    setPassword('');
   };
 
   const emailChangeHandler = (value) => {

@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import './assets/CSS/App.css';
-import { IndexPage } from './assets/IndexPage';
-import { Layout } from './assets/Layout';
-import { Login } from './assets/Login';
-import { Register } from './assets/Register';
+import { IndexPage } from './assets/Components/IndexPage';
+import { Layout } from './assets/Components/Layout';
+import { Login } from './assets/Components/Login';
+import { Register } from './assets/Components/Register';
 import { UserContextProvider } from './UserContextProvider';
 // http://127.0.0.1:5173/login
 axios.defaults.baseURL = 'http://127.0.0.1:4000';

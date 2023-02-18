@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import classes from './CSS/header.module.css';
+import classes from '../CSS/header.module.css';
 import { Link, Navigate } from 'react-router-dom';
-import { UserCreateContext } from '../UserContextProvider';
+import { UserCreateContext } from '../../UserContextProvider';
 
 export const Header = () => {
   //   const [clickHomePage, useClickHomePage] = useState('');
@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <div>
       <header className="flex justify-between">
-        <a href="/" className="flex items-center gap-3">
+        <Link to={'/'} className="flex items-center gap-3">
           <svg
             className={` text-primary ${classes.header_logo}`}
             fill="none"
@@ -32,7 +32,7 @@ export const Header = () => {
             ></path>
           </svg>
           <span className="font-bold text-xl text-primary">airbnb</span>
-        </a>
+        </Link>
         <div className="flex gap-2 border border-gray-300 rounded-full py-3 px-4 shadow-md shadow-gray-400">
           <div>Anywhere</div>
           <div className="border-l border-gray-300"></div>
@@ -57,7 +57,7 @@ export const Header = () => {
           </button>
         </div>
         <Link
-          to={'login'}
+          to={user ? '/account' : 'login'}
           className="flex gap-2 border border-gray-300 rounded-full py-3 px-4 item-center"
         >
           <svg
@@ -72,7 +72,7 @@ export const Header = () => {
               clipRule="evenodd"
             />
           </svg>
-          <div className="bg-gray-500 text-white rounded-full overflow-hidden">
+          {/* <div className="bg-gray-500 text-white rounded-full overflow-hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -85,8 +85,8 @@ export const Header = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </div>
-          {/* {!!user ? (
+          </div> */}
+          {!!user ? (
             <h3>{user.name}</h3>
           ) : (
             <div className="bg-gray-500 text-white rounded-full overflow-hidden">
@@ -103,8 +103,8 @@ export const Header = () => {
                 />
               </svg>
             </div>
-          )} */}
-          {!!user && <div>{user.name}</div>}
+          )}
+          {/* {!!user && <div>{user.name}</div>} */}
         </Link>
       </header>
     </div>
