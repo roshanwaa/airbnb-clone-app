@@ -26,8 +26,8 @@ export const Login = () => {
       console.log(e + ' Login Failed');
     }
 
-    setEmail('');
-    setPassword('');
+    // setEmail('');
+    // setPassword('');
   };
 
   const emailChangeHandler = (value) => {
