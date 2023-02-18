@@ -7,9 +7,10 @@ import { Layout } from './assets/Components/Layout';
 import { Login } from './assets/Components/Login';
 import { Register } from './assets/Components/Register';
 import { UserContextProvider } from './UserContextProvider';
-// http://127.0.0.1:5173/login
+import { AccountPage } from './assets/Components/AccountPage';
+
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
-axios.defaults.withCredentials = false;
+axios.defaults.withCredentials = true;
 
 function App() {
   // const routes = useRoutes([
@@ -26,6 +27,7 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/account" element={<AccountPage />} />
         </Route>
       </Routes>
     </UserContextProvider>
