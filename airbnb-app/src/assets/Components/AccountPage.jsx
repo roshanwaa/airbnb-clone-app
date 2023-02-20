@@ -45,6 +45,8 @@ export const AccountPage = () => {
     let classes = 'inline-flex gap-2 py-2 px-8';
     if (type === subpage) {
       classes += ' bg-primary text-white rounded-full btn active-btn';
+    } else {
+      classes += ' bg-gray-300 text-black rounded-full ';
     }
     return classes;
   }
@@ -52,7 +54,7 @@ export const AccountPage = () => {
   return (
     <div>
       <h1 className="font-bold text-4xl pt-5">Hello {user.name}</h1>
-      <nav className="w-full flex justify-center mt-6 mb-8 gap-2">
+      <nav className="w-full flex justify-center mt-6 mb-8 gap-4">
         <Link to={'/account/profile'} className={linkClasses('profile')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
