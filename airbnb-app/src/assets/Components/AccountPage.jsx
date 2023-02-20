@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Navigate, Link, useParams, redirect } from 'react-router-dom';
 import { UserCreateContext } from '../../UserContextProvider';
 import classes from '../CSS/Loader.module.css';
+import { PlacesPage } from './PlacesPage';
 
 export const AccountPage = () => {
   const { ready, user, setUser } = useContext(UserCreateContext);
@@ -25,7 +26,7 @@ export const AccountPage = () => {
       </div>
     );
   }
- 
+
   const logoutHandler = async () => {
     await axios.post('/logout');
     setRedirectHomePage('/');
@@ -72,6 +73,7 @@ export const AccountPage = () => {
           </button>
         </div>
       )}
+      {subpage === 'places' && <PlacesPage />}
     </div>
   );
 };
