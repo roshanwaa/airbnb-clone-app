@@ -1,0 +1,20 @@
+.active-btn {
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.315) 0 8px 15px;
+}
+
+.btn:disabled {
+  pointer-events: none;
+}
+
+.btn:hover {
+  background-color: #cd0404;
+  box-shadow: rgba(0, 0, 0, 0.288) 0 8px 15px;
+  transition: 0.3s;
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}

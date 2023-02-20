@@ -87,7 +87,7 @@ export const Header = () => {
             </svg>
           </div> */}
           {!!user ? (
-            <h3>{user.name}</h3>
+            <h3 className="text-rose-700">{user.name}</h3>
           ) : (
             <div className="bg-gray-500 text-white rounded-full overflow-hidden">
               <svg

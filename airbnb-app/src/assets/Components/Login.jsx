@@ -61,7 +61,7 @@ export const Login = () => {
             value={password}
             onChange={passwordChangeHandler}
           />
-          <button className="primary">Login</button>
+          <button className="primary btn">Login</button>
           <div className="text-center py-2 text-gray-500">
             Don't have a account yet?
             <Link to={'/register'} className="underline text-black">
