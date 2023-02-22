@@ -4,6 +4,8 @@
 
 html,
 body {
+  max-width: 1700px;
+  margin: 0 auto;
   background-color: #eeeeee;
 }
 
@@ -11,22 +13,27 @@ input[type='text'],
 input[type='email'],
 input[type='password'],
 textarea {
-  @apply w-full border my-2 py-2 px-3 rounded-2xl;
+  background-color: #f0eeed;
+  @apply w-full border my-2 py-2 px-3 rounded-2xl border-slate-500 mt-4;
 }
 
-button {
-  border: 1px solid #bdcdd6;
-  @apply bg-gray-300;
-}
+/* button {
+ 
+} */
 
 button.primary {
-  @apply bg-primary p-2 w-full text-white rounded-2xl my-2;
+  border: 1px solid #bdcdd6;
+  @apply bg-gray-300;
+  @apply bg-primary p-2 text-white rounded-2xl my-2 w-full;
 }
 button.primary:hover {
   @apply bg-primary_hover;
 }
 
-input {
+input[type='checkbox'] {
   background-color: #f0eeed;
-  border: 3px solid #555;
+  margin: 0;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 0.15em;
 }

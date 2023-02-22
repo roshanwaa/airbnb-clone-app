@@ -4,9 +4,9 @@ export const PlaceForm = () => {
   return (
     <div>
       <form action="">
-        <label htmlFor="title" className="text-2xl mt-4 font-medium">
+        <h2 htmlFor="title" className="text-2xl mt-4 font-medium">
           Title
-        </label>
+        </h2>
         <p className="text-gray-500 text-sm">
           Title for your place, Should be short and catchy as in advertisement.
         </p>
@@ -16,16 +16,16 @@ export const PlaceForm = () => {
           id="title"
           placeholder="Title, Ex: My apartment name"
         />
-        <label htmlFor="address" className="text-2xl mt-4 font-medium">
+        <h2 htmlFor="address" className="text-2xl mt-4 font-medium">
           Title
-        </label>
+        </h2>
         <p className="text-gray-500 text-sm">Address to this place.</p>
         <input type="text" name="address" id="address" placeholder="Address" />
-        <label htmlFor="photo" className="text-2xl mt-4 font-medium">
+        <h2 htmlFor="photo" className="text-2xl mt-4 font-medium">
           Photo
-        </label>
+        </h2>
         <p className="text-gray-500 text-sm">More = Better</p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-2">
           <input
             type="text"
             name="photo"
@@ -33,10 +33,10 @@ export const PlaceForm = () => {
             placeholder="Add Using a link to your photo ...jpg"
           />
           <button className="bg-gray-200 px-4 rounded-2xl btn">
-            Add&nbsp; Photo
+            Add &nbsp; Photo
           </button>
         </div>
-        <div className=" grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-2">
           <button className="flex justify-center gap-2 border bg-transparent rounded-2xl p-8 text-3xl btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,19 +55,19 @@ export const PlaceForm = () => {
             Upload
           </button>
         </div>
-        <label htmlFor="description" className="text-2xl mt-4 font-medium">
+        <h2 htmlFor="description" className="text-2xl mt-4 font-medium">
           Description
-        </label>
+        </h2>
         <p className="text-gray-500 text-sm">Describe your place.</p>
         <textarea className="" name="description" id="description" />
-        <label htmlFor="description" className="text-2xl mt-4 font-medium">
+        <h2 htmlFor="description" className="text-2xl mt-4 font-medium">
           Perks
-        </label>
+        </h2>
         <p className="text-gray-500 text-sm">
           Select all the perks of your place.
         </p>
-        <div className="">
-          <label className="">
+        <div className="grid gap-3 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-4">
+          <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
             <input type="checkbox" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ export const PlaceForm = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-7 h-7"
             >
               <path
                 strokeLinecap="round"
@@ -83,10 +83,9 @@ export const PlaceForm = () => {
                 d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
               />
             </svg>
-
             <span>WIFI</span>
           </label>
-          <label className="">
+          <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
             <input type="checkbox" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +93,7 @@ export const PlaceForm = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-7 h-7"
             >
               <path
                 strokeLinecap="round"
@@ -105,7 +104,7 @@ export const PlaceForm = () => {
 
             <span>Free Parking</span>
           </label>
-          <label className="">
+          <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
             <input type="checkbox" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +112,7 @@ export const PlaceForm = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-7 h-7"
             >
               <path
                 strokeLinecap="round"
@@ -124,7 +123,7 @@ export const PlaceForm = () => {
 
             <span>TV</span>
           </label>
-          <label className="">
+          <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
             <input type="checkbox" />
             <img
               src="../../../../public/Images/dog-training.svg"
@@ -133,7 +132,7 @@ export const PlaceForm = () => {
             />
             <span>Pets</span>
           </label>
-          <label className="">
+          <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
             <input type="checkbox" />
             <img
               src="../../../../public/Images/game.svg"
@@ -142,7 +141,7 @@ export const PlaceForm = () => {
             />
             <span>Games</span>
           </label>
-          <label className="">
+          <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
             <input type="checkbox" />
             <img
               src="../../../../public/Images/door.svg"
@@ -152,9 +151,50 @@ export const PlaceForm = () => {
             <span>Entrance</span>
           </label>
         </div>
+        <h2 htmlFor="description" className="text-2xl mt-4 font-medium">
+          Extra Info
+        </h2>
+        <p className="text-gray-500 text-sm">House Rules etc.</p>
+        <textarea className="" name="description" id="description" />
+        <h2 htmlFor="description" className="text-2xl mt-4 font-medium">
+          Check in & out date, max Guests
+        </h2>
+        <p className="text-gray-500 text-sm">
+          Add check in and out times, remember to have some time widows for
+          cleanings the room between guests.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="">
+            <h2 htmlFor="checkIn" className="text-xl mt-4 -mb-1 font-medium">
+              Check In Time
+            </h2>
+            <input
+              type="text"
+              name="checkIn"
+              id="checkIn"
+              placeholder="12:00"
+            />
+          </div>
+          <div className="">
+            <h2 htmlFor="checkOut" className="text-xl mt-4 -mb-1 font-medium">
+              Check Out Time
+            </h2>
+            <input
+              type="text"
+              name="checkOut"
+              id="checkOut"
+              placeholder="10:00"
+            />
+          </div>
+          <div className="">
+            <h2 htmlFor="guests" className="text-xl mt-4 -mb-1 font-medium">
+              Max Number Of guests
+            </h2>
+            <input type="text" name="guests" id="guests" placeholder="12" />
+          </div>
+        </div>
+        <button className="text-center primary my-4">Save</button>
       </form>
     </div>
   );
 };
-
-// Eclipse Keymap
