@@ -19,7 +19,7 @@ export const Login = () => {
       });
 
       setUser(data);
-      alert('Login Successful');
+      console.log('Login Successful');
       setRedirectHomePage(true);
     } catch (e) {
       console.log(e + ' Login Failed');

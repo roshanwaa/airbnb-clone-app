@@ -1,4 +1,4 @@
-const { default: mongoose } = require('mongoose');
+const { default: mongoose } = new require('mongoose');
 
 const PlaceSchema = new mongoose.Schema({
   owner: {
@@ -16,6 +16,6 @@ const PlaceSchema = new mongoose.Schema({
   maxGuest: Number,
 });
 
-const PlaceModal = new mongoose.model('place', PlaceSchema);
+const placeModal = new mongoose.model('place', PlaceSchema);
 
 module.exports = placeModal;
