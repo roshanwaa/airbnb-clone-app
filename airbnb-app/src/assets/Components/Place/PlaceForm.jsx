@@ -47,9 +47,7 @@ export const PlaceForm = () => {
   const extraInfoCHangeHandler = (event) => {
     setExtraInfo(event.target.value);
   };
-  const perksChangeHandler = (event) => {
-    setPerks(event.target.value);
-  };
+
   const checkInChangeHandler = (event) => {
     setCheckIn(event.target.value);
   };
@@ -187,7 +185,7 @@ export const PlaceForm = () => {
         {preInput('Perks', 'Select all the perks of your place.')}
 
         <div className="grid gap-3 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-4">
-          <Perks selected={perks} onChange={perksChangeHandler} />
+          <Perks selected={perks} onChange={setPerks} />
         </div>
 
         {preInput('Extra Info', 'House Rules etc.')}

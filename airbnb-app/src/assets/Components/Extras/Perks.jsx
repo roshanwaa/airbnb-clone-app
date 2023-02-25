@@ -1,10 +1,22 @@
 import React from 'react';
 
 export const Perks = ({ selected, onChange }) => {
+  const checkBoxHandler = (event) => {
+    const { checked, name } = event.target;
+    // console.log(checked, name);
+
+    if (checked) {
+      //   console.log({ ...selected });
+      onChange([...selected, name]);
+    } else {
+      onChange([...selected.filter((selectedName) => selectedName !== name)]);
+    }
+  };
+
   return (
     <>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="wifi" onChange={checkBoxHandler} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -22,7 +34,7 @@ export const Perks = ({ selected, onChange }) => {
         <span>WIFI</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="parking" onChange={checkBoxHandler} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -41,7 +53,7 @@ export const Perks = ({ selected, onChange }) => {
         <span>Free Parking</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="tv" onChange={checkBoxHandler} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -60,7 +72,7 @@ export const Perks = ({ selected, onChange }) => {
         <span>TV</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="pets" onChange={checkBoxHandler} />
         <img
           src="../../../../public/Images/dog-training.svg"
           alt="pet"
@@ -69,7 +81,7 @@ export const Perks = ({ selected, onChange }) => {
         <span>Pets</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="games" onChange={checkBoxHandler} />
         <img
           src="../../../../public/Images/game.svg"
           alt="game"
@@ -78,7 +90,7 @@ export const Perks = ({ selected, onChange }) => {
         <span>Games</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="entrance" onChange={checkBoxHandler} />
         <img
           src="../../../../public/Images/door.svg"
           alt="door"
