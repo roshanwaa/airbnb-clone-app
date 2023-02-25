@@ -71,6 +71,27 @@ export const PlaceForm = () => {
     setPhotoLink('');
   };
 
+  const uploadChangeHandler = (event) => {
+    const files = event.target.files;
+    const data = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      data.append('photos', files[i]);
+    }
+
+    data.set('photos[]', files);
+    axios
+      .post('/upload', data, {
+        header: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((response) => {
+        const { data: fileNames } = response;
+        setAddedPhotos((preValue) => {
+          return [...preValue, ...fileNames];
+        });
+      });
+  };
+
   return (
     <div>
       <form action="">
@@ -110,7 +131,7 @@ export const PlaceForm = () => {
             placeholder="Add Using a link to your photo ...jpg"
           />
           <button
-            className="bg-gray-200 px-4 rounded-2xl btn"
+            className="bg-gray-200 px-4 w-32 rounded-2xl btn"
             onClick={addPhotoByLinkHandler}
           >
             Add Photo
@@ -119,15 +140,23 @@ export const PlaceForm = () => {
         <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-2 ">
           {addedPhotos.length > 0 &&
             addedPhotos.map((link) => (
-              <div className="">
+              <div className="h-32 flex">
                 <img
-                  className="rounded-3xl"
+                  className="rounded-3xl w-full object-cover"
                   src={'http://127.0.0.1:4000/uploads/' + link}
                   alt=""
                 />
               </div>
             ))}
-          <button className="flex items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-3xl btn">
+          <label className="flex h-32 cursor-pointer items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-3xl btn">
+            <input
+              className="hidden"
+              type="file"
+              name="file"
+              id="file"
+              multiple
+              onChange={uploadChangeHandler}
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -143,7 +172,7 @@ export const PlaceForm = () => {
               />
             </svg>
             Upload
-          </button>
+          </label>
         </div>
         {preInput('Description', 'Describe your place.')}
 
