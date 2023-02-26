@@ -7,7 +7,7 @@ const PlaceSchema = new mongoose.Schema({
   },
   title: String,
   address: String,
-  photoLL: [String],
+  photos: [String],
   description: String,
   perks: [String],
   extraInfo: String,
@@ -16,6 +16,6 @@ const PlaceSchema = new mongoose.Schema({
   maxGuest: Number,
 });
 
-const placeModal = new mongoose.model('place', PlaceSchema);
+const placeModal = new mongoose.model('Place', PlaceSchema);
 
 module.exports = placeModal;

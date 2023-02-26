@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { Loading } from '../Extras/Loading';
 import { Perks } from '../Extras/Perks';
 import { PhotosUploader } from '../Extras/PhotosUploader';
 
@@ -12,7 +15,8 @@ export const PlaceForm = () => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(Number);
-
+  const [redirect, setRedirect] = useState('');
+  const [loading, setLoading] = useState(false);
   const inputHeader = (headerText) => {
     return (
       <h2 htmlFor="title" className="text-2xl mt-4 font-medium">
@@ -54,10 +58,44 @@ export const PlaceForm = () => {
   const guestChangeHandler = (event) => {
     setMaxGuests(event.target.value);
   };
+  if (!!loading) {
+    return <Loading />;
+  }
+  const submitAddNewPlaceHandler = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const placeData = {
+      title,
+      address,
+      addedPhotos,
+      description,
+      perks,
+      extraInfo,
+      checkIn,
+      checkOut,
+      maxGuests,
+    };
+
+    await axios
+      .post('/places', placeData)
+      .then((response) => {
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+      });
+
+    setRedirect('/account/places');
+  };
+
+  if (redirect) {
+    return <Navigate to={redirect} />;
+  }
 
   return (
     <div>
-      <form action="">
+      <form action=" " onSubmit={submitAddNewPlaceHandler}>
         {preInput(
           'Title',
           'Title for your place, Should be short and catchy for advertisement.'
