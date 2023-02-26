@@ -22,9 +22,6 @@ export const Register = () => {
       console.log(e);
       console.log(' Registration Failed');
     }
-    // setName('');
-    // setEmail('');
-    // setPassword('');
   };
 
   const nameChangeHandler = (setValue) => {
