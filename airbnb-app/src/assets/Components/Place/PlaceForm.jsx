@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { AccountNavigation } from '../Extras/AccountNavigation';
 import { Loading } from '../Extras/Loading';
-import { Perks } from '../Extras/Perks';
-import { PhotosUploader } from '../Extras/PhotosUploader';
+import { Perks } from './Perks';
+import { PhotosUploader } from './PhotosUploader';
 
 export const PlaceForm = () => {
   const [title, setTitle] = useState('');

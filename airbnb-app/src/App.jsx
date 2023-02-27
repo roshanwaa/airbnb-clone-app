@@ -1,13 +1,13 @@
-import React from 'react';
 import axios from 'axios';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './assets/CSS/App.css';
-import { IndexPage } from './assets/Components/IndexPage';
+import { IndexPage } from './assets/Components/Pages/IndexPage';
 import { Layout } from './assets/Components/Layout';
-import { Login } from './assets/Components/Login';
-import { Register } from './assets/Components/Register';
+import { Login } from './assets/Components/Pages/Login';
+import { AccountPage } from './assets/Components/Pages/AccountPage';
+import { Register } from './assets/Components/Pages/Register';
+import './assets/CSS/App.css';
 import { UserContextProvider } from './UserContextProvider';
-import { AccountPage } from './assets/Components/AccountPage';
 
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
 axios.defaults.withCredentials = true;

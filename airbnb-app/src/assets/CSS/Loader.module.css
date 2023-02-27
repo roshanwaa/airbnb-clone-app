@@ -1,5 +1,6 @@
 .loader {
-  height: 90vh;
+  max-height: fit-content;
+  height: 80vh;
   width: auto;
   display: flex;
   justify-content: center;

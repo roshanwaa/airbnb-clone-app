@@ -1,15 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import classes from '../CSS/header.module.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserCreateContext } from '../../UserContextProvider';
 
 export const Header = () => {
-  //   const [clickHomePage, useClickHomePage] = useState('');
-
-  //   const clickHomeHandler = (event) => {
-  //     event.preventDefault();
-  //   };
-
   const { user } = useContext(UserCreateContext);
 
   return (

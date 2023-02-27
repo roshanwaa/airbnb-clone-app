@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { UserCreateContext } from '../../UserContextProvider';
-import classes from '../CSS/Loader.module.css';
-import { AccountNavigation } from './Extras/AccountNavigation';
-import { MyProfile } from './Extras/MyProfile';
+import { UserCreateContext } from '../../../UserContextProvider';
+import { AccountNavigation } from '../Extras/AccountNavigation';
+import { Loading } from '../Extras/Loading';
+import { MyProfile } from '../Extras/MyProfile';
 import { PlacesPage } from './PlacesPage';
 
 export const AccountPage = () => {
@@ -17,16 +17,7 @@ export const AccountPage = () => {
     subpage = 'profile';
   }
   if (!ready) {
-    return (
-      <div className={classes.loader}>
-        <div className={`${classes['lds-ellipsis']}`}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   const logoutHandler = async () => {
