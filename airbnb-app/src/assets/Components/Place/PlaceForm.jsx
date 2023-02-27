@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { AccountNavigation } from '../Extras/AccountNavigation';
 import { Loading } from '../Extras/Loading';
 import { Perks } from '../Extras/Perks';
 import { PhotosUploader } from '../Extras/PhotosUploader';
@@ -15,7 +16,7 @@ export const PlaceForm = () => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(Number);
-  const [redirect, setRedirect] = useState('');
+  const [redirectToPlaceList, setRedirectToPlaceList] = useState('');
   const [loading, setLoading] = useState(false);
   const inputHeader = (headerText) => {
     return (
@@ -86,15 +87,16 @@ export const PlaceForm = () => {
         setLoading(false);
       });
 
-    setRedirect('/account/places');
+    setRedirectToPlaceList('/account/places');
   };
 
-  if (redirect) {
-    return <Navigate to={redirect} />;
+  if (redirectToPlaceList) {
+    return <Navigate to={redirectToPlaceList} />;
   }
 
   return (
     <div>
+      {/* <AccountNavigation /> */}
       <form action=" " onSubmit={submitAddNewPlaceHandler}>
         {preInput(
           'Title',

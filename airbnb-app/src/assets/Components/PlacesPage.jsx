@@ -29,6 +29,7 @@ export const PlacesPage = () => {
             </svg>
             Add New Place
           </Link>
+          <h2 className="text-lg py-4">List of all added place</h2>
         </div>
       )}
       {action === 'new' && <PlaceForm />}
