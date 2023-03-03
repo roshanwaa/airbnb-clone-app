@@ -171,6 +171,43 @@ app.get('/places/:id', async (req, res) => {
   res.json(await Place.findById(id));
 });
 
+app.put('/places', async (req, res) => {
+  const { token } = req.cookies;
+  const {
+    id,
+    title,
+    address,
+    addedPhotos,
+    description,
+    perks,
+    extraInfo,
+    checkIn,
+    checkOut,
+    maxGuest,
+  } = req.body;
+
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    if (err) throw err;
+
+    const placeDoc = await Place.findById(id);
+    if (userData.id === placeDoc.owner.toString()) {
+      placeDoc.set({
+        title,
+        address,
+        photos: addedPhotos,
+        description,
+        perks,
+        extraInfo,
+        checkIn,
+        checkOut,
+        maxGuest,
+      });
+      await placeDoc.save();
+      res.json('Ok');
+    }
+  });
+});
+
 app.listen(4000, function () {
   console.log(`CORS-enabled web server listening on port 4000`);
 });

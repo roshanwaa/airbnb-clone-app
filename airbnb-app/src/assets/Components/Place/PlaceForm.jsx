@@ -20,7 +20,7 @@ export const PlaceForm = () => {
   const [redirectToPlaceList, setRedirectToPlaceList] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { action, id } = useParams();
+  const { id } = useParams();
   useEffect(() => {
     if (!id) {
       return;
@@ -114,7 +114,7 @@ export const PlaceForm = () => {
     } else {
       // New Place
       await axios
-        .post('/places', { placeData })
+        .post('/places', placeData)
         .then((response) => {
           setLoading(false);
         })

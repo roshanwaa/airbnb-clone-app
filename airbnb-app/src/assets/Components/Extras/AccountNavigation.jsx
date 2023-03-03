@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { UserCreateContext } from '../../../UserContextProvider';
 
 export const AccountNavigation = () => {
   const { pathname } = useLocation();
@@ -9,8 +8,6 @@ export const AccountNavigation = () => {
   if (subpage === undefined) {
     subpage = 'profile';
   }
-
-  console.log({ subpage });
 
   function linkToClass(type = null) {
     let classes = 'inline-flex gap-2 py-2 px-8';
