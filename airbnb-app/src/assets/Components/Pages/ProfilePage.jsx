@@ -5,9 +5,8 @@ import { UserCreateContext } from '../../../UserContextProvider';
 import { AccountNavigation } from '../Extras/AccountNavigation';
 import { Loading } from '../Extras/Loading';
 import { MyProfile } from '../Extras/MyProfile';
-import { PlacesPage } from './PlacesPage';
 
-export const AccountPage = () => {
+export const ProfilePage = () => {
   const { ready, user, setUser } = useContext(UserCreateContext);
   const [redirectHomePage, setRedirectHomePage] = useState(null);
 
@@ -34,24 +33,13 @@ export const AccountPage = () => {
     return <Navigate to="/login" />;
   }
 
-  function linkClasses(type = null) {
-    let classes = 'inline-flex gap-2 py-2 px-8';
-    if (type === subpage) {
-      classes += ' bg-primary text-white rounded-full btn active-btn';
-    } else {
-      classes += ' bg-gray-300 text-black rounded-full ';
-    }
-    return classes;
-  }
-
   return (
     <div>
-      <h1 className="font-bold text-4xl pt-5">Hello {user.name}</h1>
-      <AccountNavigation linkToClass={linkClasses} />
-      {subpage === 'profile' && (
-        <MyProfile onLogout={logoutHandler} user={user} />
-      )}
-      {subpage === 'places' && <PlacesPage />}
+      <AccountNavigation />
+      <h1 className="font-bold text-4xl p-5 text-center hover:text-primary">
+        Hello {user.name}
+      </h1>
+      <MyProfile onLogout={logoutHandler} user={user} />
     </div>
   );
 };

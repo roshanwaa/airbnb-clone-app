@@ -16,7 +16,12 @@ export const Perks = ({ selected, onChange }) => {
   return (
     <>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" name="wifi" onChange={checkBoxHandler} />
+        <input
+          type="checkbox"
+          checked={selected.includes('wifi')}
+          name="wifi"
+          onChange={checkBoxHandler}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -34,7 +39,12 @@ export const Perks = ({ selected, onChange }) => {
         <span>WIFI</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" name="parking" onChange={checkBoxHandler} />
+        <input
+          type="checkbox"
+          checked={selected.includes('parking')}
+          name="parking"
+          onChange={checkBoxHandler}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -53,7 +63,12 @@ export const Perks = ({ selected, onChange }) => {
         <span>Free Parking</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" name="tv" onChange={checkBoxHandler} />
+        <input
+          type="checkbox"
+          checked={selected.includes('tv')}
+          name="tv"
+          onChange={checkBoxHandler}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -72,7 +87,12 @@ export const Perks = ({ selected, onChange }) => {
         <span>TV</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" name="pets" onChange={checkBoxHandler} />
+        <input
+          type="checkbox"
+          checked={selected.includes('pets')}
+          name="pets"
+          onChange={checkBoxHandler}
+        />
         <img
           src="../../../../public/Images/dog-training.svg"
           alt="pet"
@@ -81,7 +101,12 @@ export const Perks = ({ selected, onChange }) => {
         <span>Pets</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" name="games" onChange={checkBoxHandler} />
+        <input
+          type="checkbox"
+          checked={selected.includes('games')}
+          name="games"
+          onChange={checkBoxHandler}
+        />
         <img
           src="../../../../public/Images/game.svg"
           alt="game"
@@ -90,7 +115,12 @@ export const Perks = ({ selected, onChange }) => {
         <span>Games</span>
       </label>
       <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
-        <input type="checkbox" name="entrance" onChange={checkBoxHandler} />
+        <input
+          type="checkbox"
+          checked={selected.includes('entrance')}
+          name="entrance"
+          onChange={checkBoxHandler}
+        />
         <img
           src="../../../../public/Images/door.svg"
           alt="door"

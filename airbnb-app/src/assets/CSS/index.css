@@ -18,6 +18,9 @@ textarea {
   @apply w-full border my-2 py-2 px-3 rounded-2xl border-slate-500 mt-4;
 }
 
+textarea {
+  height: 150px;
+}
 /* .uploadBtn {
   border: 0.5px solid #93acb8;
 } */

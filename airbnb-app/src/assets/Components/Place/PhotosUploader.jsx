@@ -51,8 +51,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
         />
         <button
           className="bg-gray-200 px-4 w-32 rounded-2xl btn"
-          onClick={addPhotoByLinkHandler}
-        >
+          onClick={addPhotoByLinkHandler}>
           Add Photo
         </button>
       </div>
@@ -82,8 +81,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-9 h-9"
-          >
+            className="w-9 h-9">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

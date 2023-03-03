@@ -4,7 +4,7 @@
 
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+const mongoose = new require('mongoose');
 const User = require('./Models/User');
 const Place = require('./Models/Places');
 const bcrypt = require('bcryptjs');
@@ -133,7 +133,7 @@ app.post('/places', (req, res) => {
     const {
       title,
       address,
-      photos,
+      addedPhotos,
       description,
       perks,
       extraInfo,
@@ -164,6 +164,11 @@ app.get('/places', (req, res) => {
     const { id } = userData;
     res.json(await Place.find({ owner: id }));
   });
+});
+
+app.get('/places/:id', async (req, res) => {
+  const { id } = req.params;
+  res.json(await Place.findById(id));
 });
 
 app.listen(4000, function () {

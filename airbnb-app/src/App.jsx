@@ -4,22 +4,17 @@ import { Route, Routes } from 'react-router-dom';
 import { IndexPage } from './assets/Components/Pages/IndexPage';
 import { Layout } from './assets/Components/Layout';
 import { Login } from './assets/Components/Pages/Login';
-import { AccountPage } from './assets/Components/Pages/AccountPage';
+import { ProfilePage } from './assets/Components/Pages/ProfilePage';
 import { Register } from './assets/Components/Pages/Register';
 import './assets/CSS/App.css';
 import { UserContextProvider } from './UserContextProvider';
+import { PlacesPage } from './assets/Components/Pages/PlacesPage';
+import { PlaceForm } from './assets/Components/Place/PlaceForm';
 
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
 axios.defaults.withCredentials = true;
 
 function App() {
-  // const routes = useRoutes([
-  //   { path: '/', element: <Layout /> },
-  //   { index: '', element: <IndexPage /> },
-  //   { path: '/login', element: <Login /> },
-  // ]);
-  // return routes;
-
   return (
     <UserContextProvider>
       <Routes>
@@ -27,8 +22,10 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/account/:subpage?" element={<AccountPage />} />
-          <Route path="/account/:subpage/:action" element={<AccountPage />} />
+          <Route path="/account" element={<ProfilePage />} />
+          <Route path="/account/profile" element={<ProfilePage />} />
+          <Route path="/account/places" element={<PlacesPage />} />
+          <Route path="/account/places/new" element={<PlaceForm />} />
         </Route>
       </Routes>
     </UserContextProvider>

@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { AccountNavigation } from '../Extras/AccountNavigation';
 import { Loading } from '../Extras/Loading';
 import { Perks } from './Perks';
+
 import { PhotosUploader } from './PhotosUploader';
 
 export const PlaceForm = () => {
@@ -15,8 +17,29 @@ export const PlaceForm = () => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(Number);
-  const [redirectToPlaceList, setRedirectToPlaceList] = useState('');
+  const [redirectToPlaceList, setRedirectToPlaceList] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const { action, id } = useParams();
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+    axios.get('/places/' + id).then((response) => {
+      const { data } = response;
+      setTitle(data.title);
+      setAddress(data.address);
+      setAddedPhotos(data.photos);
+      setDescription(data.description);
+      setPerks(data.perks);
+      setExtraInfo(data.extraInfo);
+      setCheckIn(data.checkIn);
+      setCheckOut(data.checkOut);
+    });
+
+    return () => {};
+  }, [id]);
+
   const inputHeader = (headerText) => {
     return (
       <h2 htmlFor="title" className="text-2xl mt-4 font-medium">
@@ -77,25 +100,39 @@ export const PlaceForm = () => {
       maxGuests,
     };
 
-    await axios
-      .post('/places', placeData)
-      .then((response) => {
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-      });
+    if (id) {
+      // Update
+      await axios
+        .put('/places', { id, ...placeData })
+        .then((response) => {
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+        });
+      setRedirectToPlaceList(true);
+    } else {
+      // New Place
+      await axios
+        .post('/places', { placeData })
+        .then((response) => {
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+        });
 
-    setRedirectToPlaceList('/account/places');
+      setRedirectToPlaceList(true);
+    }
   };
 
   if (redirectToPlaceList) {
-    return <Navigate to={redirectToPlaceList} />;
+    return <Navigate to={'/account/places'} />;
   }
 
   return (
     <div>
-      {/* <AccountNavigation /> */}
+      <AccountNavigation />
       <form action=" " onSubmit={submitAddNewPlaceHandler}>
         {preInput(
           'Title',
@@ -199,3 +236,5 @@ export const PlaceForm = () => {
     </div>
   );
 };
+
+// 'Cascadia Code', Consolas, 'Courier New', monospace
