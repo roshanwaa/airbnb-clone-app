@@ -50,7 +50,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
           placeholder="Add Using a link to your photo ...jpg"
         />
         <button
-          className="bg-gray-200 px-4 w-32 rounded-2xl btn"
+          className="bg-gray-200 px-4 w-32 rounded-2xl hover:text-white hover:bg-rose-500 duration-300 hover:scale-105"
           onClick={addPhotoByLinkHandler}>
           Add Photo
         </button>
@@ -66,7 +66,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
               />
             </div>
           ))}
-        <label className="flex h-32 cursor-pointer items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-3xl btn">
+        <label className="flex h-32 cursor-pointer items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-3xl hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
           <input
             className="hidden"
             type="file"

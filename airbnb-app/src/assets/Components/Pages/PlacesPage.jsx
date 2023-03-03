@@ -56,7 +56,7 @@ export const PlacesPage = () => {
       <div className="text-center">
         <Link
           to={'/account/places/new'}
-          className="inline-flex gap-4 bg-primary text-white py-2 px-4 rounded-full btn">
+          className="inline-flex gap-2 bg-primary text-white py-2 px-4 rounded-full hover:text-white duration-300 hover:scale-105">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

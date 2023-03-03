@@ -12,9 +12,10 @@ export const AccountNavigation = () => {
   function linkToClass(type = null) {
     let classes = 'inline-flex gap-2 py-2 px-8';
     if (type === subpage) {
-      classes += ' bg-primary text-white rounded-full btn active-btn';
+      classes +=
+        ' bg-primary text-white rounded-full active-btn duration-300 hover:scale-110';
     } else {
-      classes += ' bg-gray-300 text-black rounded-full ';
+      classes += ' bg-gray-300 text-black rounded-full';
     }
     return classes;
   }

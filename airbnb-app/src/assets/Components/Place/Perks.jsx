@@ -15,7 +15,7 @@ export const Perks = ({ selected, onChange }) => {
 
   return (
     <>
-      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
+      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
         <input
           type="checkbox"
           checked={selected.includes('wifi')}
@@ -28,8 +28,7 @@ export const Perks = ({ selected, onChange }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-7 h-7"
-        >
+          className="w-7 h-7">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -38,7 +37,7 @@ export const Perks = ({ selected, onChange }) => {
         </svg>
         <span>WIFI</span>
       </label>
-      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
+      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
         <input
           type="checkbox"
           checked={selected.includes('parking')}
@@ -51,8 +50,7 @@ export const Perks = ({ selected, onChange }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-7 h-7"
-        >
+          className="w-7 h-7">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -62,7 +60,7 @@ export const Perks = ({ selected, onChange }) => {
 
         <span>Free Parking</span>
       </label>
-      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
+      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
         <input
           type="checkbox"
           checked={selected.includes('tv')}
@@ -75,8 +73,7 @@ export const Perks = ({ selected, onChange }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-7 h-7"
-        >
+          className="w-7 h-7">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -86,7 +83,7 @@ export const Perks = ({ selected, onChange }) => {
 
         <span>TV</span>
       </label>
-      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
+      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
         <input
           type="checkbox"
           checked={selected.includes('pets')}
@@ -100,7 +97,7 @@ export const Perks = ({ selected, onChange }) => {
         />
         <span>Pets</span>
       </label>
-      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
+      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
         <input
           type="checkbox"
           checked={selected.includes('games')}
@@ -114,7 +111,7 @@ export const Perks = ({ selected, onChange }) => {
         />
         <span>Games</span>
       </label>
-      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer">
+      <label className="border border-slate-600 p-4 flex rounded-2xl gap-3 items-center cursor-pointer hover:text-white hover:bg-rose-500 duration-300 hover:scale-105">
         <input
           type="checkbox"
           checked={selected.includes('entrance')}
