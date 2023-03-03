@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { AccountNavigation } from '../Extras/AccountNavigation';
-import { Loading } from '../Extras/Loading';
 import { Perks } from './Perks';
 
 import { PhotosUploader } from './PhotosUploader';
@@ -81,9 +80,9 @@ export const PlaceForm = () => {
   const guestChangeHandler = (event) => {
     setMaxGuests(event.target.value);
   };
-  if (!!loading) {
-    return <Loading />;
-  }
+  // if (!!loading) {
+  //   return <Loading />;
+  // }
   const submitAddNewPlaceHandler = async (event) => {
     event.preventDefault();
     setLoading(true);

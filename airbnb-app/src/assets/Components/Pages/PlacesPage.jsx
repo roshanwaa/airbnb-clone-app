@@ -31,15 +31,19 @@ export const PlacesPage = () => {
     return (
       <Link
         to={`/account/places/${place._id}`}
-        className="flex cursor-pointer gap-4 bg-gray-100 rounded-2xl p-4"
+        className="flex cursor-pointer m-4 gap-4 bg-gray-300 rounded-2xl p-4 hover:text-white hover:bg-rose-500 duration-300 hover:scale-105"
         key={place._id}>
-        <div className="w-32 h-32 bg-gray-300 grow-0 shrink-0 rounded-2xl">
+        <div className="w-32 h-32 bg-gray-300 grow-0 shrink-0 rounded-2xl overflow-hidden">
           {place.photos.length > 0 && (
-            <img src={place.photos[0]} alt={place.title} />
+            <img
+              className="h-32"
+              src={'http://localhost:4000/uploads/' + place.photos[0]}
+              alt={place.title}
+            />
           )}
         </div>
-        <div className="grow-0 shrink mt-2">
-          <h2 className="text-xl font-semibold ">{place.title}</h2>
+        <div className="grow-0 shrink mt-2 text-start">
+          <h2 className="text-xl font-semibold">{place.title}</h2>
           <p className="text-sm mt-2">{place.description}</p>
         </div>
       </Link>
@@ -52,7 +56,7 @@ export const PlacesPage = () => {
       <div className="text-center">
         <Link
           to={'/account/places/new'}
-          className="inline-flex gap-1 bg-primary text-white py-2 px-4 rounded-full btn">
+          className="inline-flex gap-4 bg-primary text-white py-2 px-4 rounded-full btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -74,7 +78,7 @@ export const PlacesPage = () => {
         ) : (
           <div className="gap-6">
             {addedPlaces.length > 0 && (
-              <div className="mt-4 ">{showAddedPlaces}</div>
+              <div className="mt-4">{showAddedPlaces}</div>
             )}
           </div>
         )}
