@@ -60,7 +60,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
           addedPhotos.map((link) => (
             <div className="h-32 flex" key={link}>
               <img
-                className="rounded-3xl w-full object-cover"
+                className="rounded-3xl w-full object-cover duration-300 hover:scale-105"
                 src={'http://127.0.0.1:4000/uploads/' + link}
                 alt=""
               />

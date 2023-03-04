@@ -1,12 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AccountNavigation } from '../Extras/AccountNavigation';
 import { Loading } from '../Extras/Loading';
 
 export const PlacesPage = () => {
-  const { subpage } = useParams();
-  const { id } = useParams();
   const [addedPlaces, setAddedPlaces] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -31,7 +29,7 @@ export const PlacesPage = () => {
     return (
       <Link
         to={`/account/places/${place._id}`}
-        className="flex cursor-pointer m-4 gap-4 bg-gray-300 rounded-2xl p-4 hover:text-white hover:bg-rose-500 duration-300 hover:scale-105"
+        className="flex cursor-pointer m-6 gap-4 bg-gray-300 rounded-2xl p-4 hover:text-white hover:bg-rose-500 duration-300 hover:scale-105"
         key={place._id}>
         <div className="w-32 h-32 bg-gray-300 grow-0 shrink-0 rounded-2xl overflow-hidden">
           {place.photos.length > 0 && (

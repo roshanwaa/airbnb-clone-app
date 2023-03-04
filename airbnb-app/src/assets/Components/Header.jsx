@@ -27,7 +27,7 @@ export const Header = () => {
           </svg>
           <span className="font-bold text-xl text-primary">airbnb</span>
         </Link>
-        <div className="flex gap-2 border border-gray-300 rounded-full py-3 px-4 shadow-md shadow-gray-400">
+        <div className="flex gap-2 border border-gray-300 rounded-full py-3 px-4 shadow-md shadow-gray-400 item-center duration-300 hover:scale-105">
           <div>Anywhere</div>
           <div className="border-l border-gray-300"></div>
           <div>Any Week</div>
@@ -51,7 +51,7 @@ export const Header = () => {
         </div>
         <Link
           to={user ? '/account' : 'login'}
-          className="flex gap-2 border border-gray-300 rounded-full py-3 px-4 item-center hover:text-white hover:bg-rose-500 duration-300 hover:scale-105 background-color: #cd0404">
+          className="flex gap-2 border items-center border-gray-300 rounded-full py-3 px-4 hover:text-white hover:bg-rose-500 duration-300 hover:scale-105 background-color: #cd0404">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -78,7 +78,9 @@ export const Header = () => {
             </svg>
           </div> */}
           {!!user ? (
-            <h3 className="hover:text-white">{user.name}</h3>
+            <h3 className="hidden lg:block md:block hover:text-white">
+              {user.name}
+            </h3>
           ) : (
             <div className="bg-gray-500 text-white rounded-full overflow-hidden">
               <svg
