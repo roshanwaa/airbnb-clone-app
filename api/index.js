@@ -208,6 +208,10 @@ app.put('/user-places', async (req, res) => {
   });
 });
 
+app.get('/places/', async (req, res) => {
+  res.json(await Place.find());
+});
+
 app.listen(4000, function () {
   console.log(`CORS-enabled web server listening on port 4000`);
 });
