@@ -12,7 +12,7 @@ export const PlacesPage = () => {
     setLoading(true);
 
     axios
-      .get('/places')
+      .get('/user-places')
       .then(({ data }) => {
         setAddedPlaces(data);
         setLoading(false);
@@ -28,7 +28,7 @@ export const PlacesPage = () => {
   const showAddedPlaces = addedPlaces.map((place) => {
     return (
       <Link
-        to={`/account/places/${place._id}`}
+        to={`/account/user-places/${place._id}`}
         className="flex cursor-pointer m-6 gap-4 bg-gray-300 rounded-2xl p-4 hover:text-white hover:bg-rose-500 duration-300 hover:scale-105"
         key={place._id}>
         <div className="w-32 h-32 bg-gray-300 grow-0 shrink-0 rounded-2xl overflow-hidden">
@@ -53,7 +53,7 @@ export const PlacesPage = () => {
       <AccountNavigation />
       <div className="text-center">
         <Link
-          to={'/account/places/new'}
+          to={'/account/user-places/new'}
           className="inline-flex gap-2 bg-primary text-white py-2 px-4 rounded-full hover:text-white duration-300 hover:scale-105">
           <svg
             xmlns="http://www.w3.org/2000/svg"

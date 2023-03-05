@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { AccountNavigation } from '../Extras/AccountNavigation';
+import { Loading } from '../Extras/Loading';
 import { Perks } from './Perks';
 
 import { PhotosUploader } from './PhotosUploader';
@@ -24,7 +25,7 @@ export const PlaceForm = () => {
     if (!id) {
       return;
     }
-    axios.get('/places/' + id).then((response) => {
+    axios.get('/user-places/' + id).then((response) => {
       const { data } = response;
       setTitle(data.title);
       setAddress(data.address);
@@ -80,9 +81,7 @@ export const PlaceForm = () => {
   const guestChangeHandler = (event) => {
     setMaxGuests(event.target.value);
   };
-  // if (!!loading) {
-  //   return <Loading />;
-  // }
+
   const submitAddNewPlaceHandler = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -102,7 +101,7 @@ export const PlaceForm = () => {
     if (id) {
       // Update
       await axios
-        .put('/places', { id, ...placeData })
+        .put('/user-places', { id, ...placeData })
         .then((response) => {
           setLoading(false);
         })
@@ -113,7 +112,7 @@ export const PlaceForm = () => {
     } else {
       // New Place
       await axios
-        .post('/places', placeData)
+        .post('/user-places', placeData)
         .then((response) => {
           setLoading(false);
         })
@@ -125,8 +124,12 @@ export const PlaceForm = () => {
     }
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   if (redirectToPlaceList) {
-    return <Navigate to={'/account/places'} />;
+    return <Navigate to={'/account/user-places'} />;
   }
 
   return (
@@ -235,5 +238,3 @@ export const PlaceForm = () => {
     </div>
   );
 };
-
-// 'Cascadia Code', Consolas, 'Courier New', monospace

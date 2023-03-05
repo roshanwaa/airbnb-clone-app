@@ -9,7 +9,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
   };
   const addPhotoByLinkHandler = async (event) => {
     event.preventDefault();
-    const { data: fileName } = await axios.post('/upload-by-Link', {
+    const { data: fileName } = await axios.post('/user-upload-by-Link', {
       link: photoLink,
     });
     onChange((preValue) => {
@@ -28,7 +28,7 @@ export const PhotosUploader = ({ addedPhotos, onChange }) => {
 
     data.set('photos[]', files);
     axios
-      .post('/upload', data, {
+      .post('/user-upload', data, {
         header: { 'Content-Type': 'multipart/form-data' },
       })
       .then((response) => {

@@ -99,7 +99,7 @@ app.post('/logout', (req, res) => {
   res.cookie('token', '').json(true);
 });
 
-app.post('/upload-by-Link', async (req, res) => {
+app.post('/user-upload-by-Link', async (req, res) => {
   const { link } = req.body;
   const newName = 'photo' + Date.now() + '.jpg';
   await download.image({
@@ -111,7 +111,7 @@ app.post('/upload-by-Link', async (req, res) => {
 
 const photosUpload = multer({ dest: 'uploads/' });
 
-app.post('/upload', photosUpload.array('photos', 100), (req, res) => {
+app.post('/user-upload', photosUpload.array('photos', 100), (req, res) => {
   const uploadedFiles = [];
   for (let i = 0; i < req.files.length; i++) {
     const { path, originalname } = req.files[i];
@@ -125,7 +125,7 @@ app.post('/upload', photosUpload.array('photos', 100), (req, res) => {
   res.json(uploadedFiles);
 });
 
-app.post('/places', (req, res) => {
+app.post('/user-places', (req, res) => {
   const { token } = req.cookies;
 
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
@@ -158,7 +158,7 @@ app.post('/places', (req, res) => {
   });
 });
 
-app.get('/places', (req, res) => {
+app.get('/user-places', (req, res) => {
   const { token } = req.cookies;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     const { id } = userData;
@@ -166,12 +166,12 @@ app.get('/places', (req, res) => {
   });
 });
 
-app.get('/places/:id', async (req, res) => {
+app.get('/user-places/:id', async (req, res) => {
   const { id } = req.params;
   res.json(await Place.findById(id));
 });
 
-app.put('/places', async (req, res) => {
+app.put('/user-places', async (req, res) => {
   const { token } = req.cookies;
   const {
     id,

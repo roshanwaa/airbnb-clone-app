@@ -24,9 +24,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/account" element={<ProfilePage />} />
           <Route path="/account/profile" element={<ProfilePage />} />
-          <Route path="/account/places" element={<PlacesPage />} />
-          <Route path="/account/places/new" element={<PlaceForm />} />
-          <Route path="/account/places/:id" element={<PlaceForm />} />
+          <Route path="/account/user-places" element={<PlacesPage />} />
+          <Route path="/account/user-places/new" element={<PlaceForm />} />
+          <Route path="/account/user-places/:id" element={<PlaceForm />} />
         </Route>
       </Routes>
     </UserContextProvider>
