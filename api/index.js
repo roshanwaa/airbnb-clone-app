@@ -139,7 +139,8 @@ app.post('/user-places', (req, res) => {
       extraInfo,
       checkIn,
       checkOut,
-      maxGuest,
+      maxGuests,
+      price,
     } = req.body;
 
     const placeDoc = await Place.create({
@@ -152,7 +153,8 @@ app.post('/user-places', (req, res) => {
       extraInfo,
       checkIn,
       checkOut,
-      maxGuest,
+      maxGuests,
+      price,
     });
     res.json(placeDoc);
   });
@@ -183,7 +185,8 @@ app.put('/user-places', async (req, res) => {
     extraInfo,
     checkIn,
     checkOut,
-    maxGuest,
+    maxGuests,
+    price,
   } = req.body;
 
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
@@ -200,7 +203,8 @@ app.put('/user-places', async (req, res) => {
         extraInfo,
         checkIn,
         checkOut,
-        maxGuest,
+        maxGuests,
+        price,
       });
       await placeDoc.save();
       res.json('Ok');

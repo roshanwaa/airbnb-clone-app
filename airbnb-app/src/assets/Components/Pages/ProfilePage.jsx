@@ -10,11 +10,11 @@ export const ProfilePage = () => {
   const { ready, user, setUser } = useContext(UserCreateContext);
   const [redirectHomePage, setRedirectHomePage] = useState(null);
 
-  let { subpage } = useParams();
+  // let { subpage } = useParams();
 
-  if (subpage === undefined) {
-    subpage = 'profile';
-  }
+  // if (subpage === undefined) {
+  //   subpage = 'profile';
+  // }
   if (!ready) {
     return <Loading />;
   }

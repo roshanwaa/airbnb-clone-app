@@ -16,7 +16,9 @@ export const PlaceForm = () => {
   const [extraInfo, setExtraInfo] = useState('');
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
-  const [maxGuests, setMaxGuests] = useState(Number);
+  const [maxGuests, setMaxGuests] = useState('2');
+  const [price, setPrice] = useState('');
+
   const [redirectToPlaceList, setRedirectToPlaceList] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -35,6 +37,8 @@ export const PlaceForm = () => {
       setExtraInfo(data.extraInfo);
       setCheckIn(data.checkIn);
       setCheckOut(data.checkOut);
+      setMaxGuests(data.maxGuests);
+      setPrice(data.price);
     });
 
     return () => {};
@@ -81,6 +85,9 @@ export const PlaceForm = () => {
   const guestChangeHandler = (event) => {
     setMaxGuests(event.target.value);
   };
+  const priceChangeHandler = (event) => {
+    setPrice(event.target.value);
+  };
 
   const submitAddNewPlaceHandler = async (event) => {
     event.preventDefault();
@@ -96,6 +103,7 @@ export const PlaceForm = () => {
       checkIn,
       checkOut,
       maxGuests,
+      price,
     };
 
     if (id) {
@@ -193,7 +201,7 @@ export const PlaceForm = () => {
           'Add check in and out times, remember to have some time widows for cleanings the room between guests.'
         )}
 
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           <div className="">
             <h2 htmlFor="checkIn" className="text-xl mt-4 -mb-1 font-medium">
               Check In Time
@@ -230,6 +238,19 @@ export const PlaceForm = () => {
               id="guests"
               value={maxGuests}
               onChange={guestChangeHandler}
+            />
+          </div>
+          <div className="">
+            <h2 htmlFor="price" className="text-xl mt-4 -mb-1 font-medium">
+              Price Per Night
+            </h2>
+            <input
+              type="number"
+              name="pricePN"
+              id="pricePN"
+              value={price}
+              onChange={priceChangeHandler}
+              placeholder="e.g. 50$"
             />
           </div>
         </div>
