@@ -8,7 +8,8 @@ import { ProfilePage } from './assets/Components/Pages/ProfilePage';
 import { Register } from './assets/Components/Pages/Register';
 import './assets/CSS/App.css';
 import { UserContextProvider } from './UserContextProvider';
-import { PlacesPage } from './assets/Components/Pages/PlacesPage';
+import { UserPlacesPage } from './assets/Components/Pages/UserPlacesPage';
+import { PlacePage } from './assets/Components/Pages/PlacePage';
 import { PlaceForm } from './assets/Components/Place/PlaceForm';
 
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
@@ -24,9 +25,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/account" element={<ProfilePage />} />
           <Route path="/account/profile" element={<ProfilePage />} />
-          <Route path="/account/user-places" element={<PlacesPage />} />
+          <Route path="/account/user-places" element={<UserPlacesPage />} />
           <Route path="/account/user-places/new" element={<PlaceForm />} />
           <Route path="/account/user-places/:id" element={<PlaceForm />} />
+          <Route path="/place/:id" element={<PlacePage />} />
         </Route>
       </Routes>
     </UserContextProvider>

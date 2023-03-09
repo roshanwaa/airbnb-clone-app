@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Loading } from '../Extras/Loading';
 
 export const IndexPage = () => {
@@ -23,8 +24,9 @@ export const IndexPage = () => {
   }, []);
 
   const mainPlaces = places.map((place) => (
-    <div
-      className="duration-300 hover:scale-105 cursor-pointer"
+    <Link
+      to={'/place/' + place._id}
+      className="duration-300 hover:scale-105"
       key={place._id}>
       <div className="bg-gray-400 rounded-2xl flex mb-2">
         {place.photos?.[0] && (
@@ -40,7 +42,7 @@ export const IndexPage = () => {
         Price Per Night: ${place.price}
       </h3>
       <h3 className="text-sm text-gray-500">{place.address}</h3>
-    </div>
+    </Link>
   ));
 
   return (

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AccountNavigation } from '../Extras/AccountNavigation';
 import { Loading } from '../Extras/Loading';
 
-export const PlacesPage = () => {
+export const UserPlacesPage = () => {
   const [addedPlaces, setAddedPlaces] = useState([]);
   const [loading, setLoading] = useState(false);
 
