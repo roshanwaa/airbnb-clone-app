@@ -6,15 +6,7 @@ export const IndexPage = () => {
 
   useEffect(() => {
     axios.get('/places').then((response) => {
-      setPlaces([
-        ...response.data,
-        ...response.data,
-        ...response.data,
-        ...response.data,
-        ...response.data,
-        ...response.data,
-        ...response.data,
-      ]);
+      setPlaces([...response.data]);
     });
 
     return () => {};
@@ -33,9 +25,11 @@ export const IndexPage = () => {
           />
         )}
       </div>
-      <h2 className="text-lg font-semibold truncate">{place.title}</h2>
-      <h3 className="text-sm font-semibold">Price: {place.price}$</h3>
-      <h3 className="text-sm">{place.address}</h3>
+      <h2 className="text-lg font-bold truncate">{place.title}</h2>
+      <h3 className="text-sm font-semibold my-2">
+        Price Per Night: ${place.price}
+      </h3>
+      <h3 className="text-sm text-gray-500">{place.address}</h3>
     </div>
   ));
 

@@ -44,7 +44,7 @@ export const PlacesPage = () => {
           <h2 className="text-xl font-semibold">{place.title}</h2>
           <p className="text-sm mt-2">{place.description}$</p>
           <p className="text-sm mt-2">Guest: {place.maxGuests}</p>
-          <p className="text-sm mt-2">Price: {place.price}$</p>
+          <p className="text-sm mt-2">Price Per Night: {place.price}$</p>
         </div>
       </Link>
     );
