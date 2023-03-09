@@ -1,13 +1,23 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Loading } from '../Extras/Loading';
 
 export const IndexPage = () => {
   const [places, setPlaces] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.get('/places').then((response) => {
-      setPlaces([...response.data]);
-    });
+    setLoading(true);
+
+    axios
+      .get('/places')
+      .then((response) => {
+        setPlaces([...response.data]);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+      });
 
     return () => {};
   }, []);
@@ -34,8 +44,14 @@ export const IndexPage = () => {
   ));
 
   return (
-    <div className="mt-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-6">
-      {places.length > 0 && mainPlaces}
-    </div>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-6">
+          {places.length > 0 && mainPlaces}
+        </div>
+      )}
+    </>
   );
 };
