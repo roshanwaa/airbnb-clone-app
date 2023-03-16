@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { TbBrandAirbnb } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import { UserCreateContext } from '../../UserContextProvider';
 import classes from '../CSS/header.module.css';
@@ -11,8 +12,8 @@ export const Header = () => {
       <header className="flex justify-between">
         <Link
           to={'/'}
-          className="flex items-center gap-3 duration-300 hover:scale-105">
-          <svg
+          className="flex items-center gap-2 duration-300 hover:scale-105">
+          {/* <svg
             className={`text-primary ${classes.header_logo}`}
             fill="none"
             stroke="currentColor"
@@ -24,15 +25,20 @@ export const Header = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"></path>
-          </svg>
-          <span className="font-bold text-xl text-primary">airbnb</span>
+          </svg> */}
+          <TbBrandAirbnb
+            className={`w-8 h-8 text-primary ${classes.header_logo}`}
+          />
+          <span className="font-bold text-xl text-primary hidden md:block">
+            airbnb
+          </span>
         </Link>
         <div className="flex gap-2 border border-gray-300 rounded-full py-3 px-4 shadow-md shadow-gray-400 item-center duration-300 hover:scale-105">
-          <div>Anywhere</div>
-          <div className="border-l border-gray-300"></div>
-          <div>Any Week</div>
-          <div className="border-l border-gray-300"></div>
-          <div>Add Guests</div>
+          <h3 className="hidden md:block">Anywhere</h3>
+          <div className="border-l hidden md:block border-gray-300"></div>
+          <h3 className="hidden md:block">Any Week</h3>
+          <div className="border-l hidden md:block border-gray-300"></div>
+          <h3 className="hidden md:block">Add Guests</h3>
           <button className="bg-primary text-white p-1 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
