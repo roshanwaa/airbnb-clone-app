@@ -9,7 +9,8 @@ export const PlaceImages = ({ placeProps: place, allPhotos }) => {
           {place.photos?.[0] && (
             <div className="aspect-square object-cover">
               <img
-                className="aspect-square object-cover"
+                onClick={() => allPhotos(true)}
+                className="aspect-square cursor-pointer object-cover"
                 src={'http://localhost:4000/uploads/' + place.photos[0]}
                 alt={place.photos[0]}
               />
@@ -18,7 +19,8 @@ export const PlaceImages = ({ placeProps: place, allPhotos }) => {
           <div className="grid">
             {place.photos?.[1] && (
               <img
-                className="aspect-square object-cover"
+                onClick={() => allPhotos(true)}
+                className="aspect-square cursor-pointer object-cover"
                 src={'http://localhost:4000/uploads/' + place.photos[1]}
                 alt={place.photos[1]}
               />
@@ -26,7 +28,8 @@ export const PlaceImages = ({ placeProps: place, allPhotos }) => {
             <div className="overflow-hidden">
               {place.photos?.[2] && (
                 <img
-                  className="aspect-square object-cover relative top-2"
+                  onClick={() => allPhotos(true)}
+                  className="aspect-square cursor-pointer object-cover relative top-2"
                   src={'http://localhost:4000/uploads/' + place.photos[2]}
                   alt={place.photos[2]}
                 />
@@ -36,7 +39,8 @@ export const PlaceImages = ({ placeProps: place, allPhotos }) => {
           <div className="grid">
             {place.photos?.[3] && (
               <img
-                className="aspect-square object-cover"
+                onClick={() => allPhotos(true)}
+                className="aspect-square cursor-pointer object-cover"
                 src={'http://localhost:4000/uploads/' + place.photos[3]}
                 alt={place.photos[3]}
               />
@@ -44,7 +48,8 @@ export const PlaceImages = ({ placeProps: place, allPhotos }) => {
             <div className="overflow-hidden">
               {place.photos?.[4] && (
                 <img
-                  className="aspect-square object-cover relative top-2"
+                  onClick={() => allPhotos(true)}
+                  className="aspect-square cursor-pointer object-cover relative top-2"
                   src={'http://localhost:4000/uploads/' + place.photos[4]}
                   alt={place.photos[4]}
                 />

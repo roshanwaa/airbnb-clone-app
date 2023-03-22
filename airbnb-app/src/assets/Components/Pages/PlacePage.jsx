@@ -49,7 +49,7 @@ export const PlacePage = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="mt-8 ">
+        <div className="mt-8">
           <h1 className="text-3xl font-medium">{place.title}</h1>
 
           <div className="my-2 items-center gap-2 font-semibold flex">
@@ -68,8 +68,8 @@ export const PlacePage = () => {
             </a>
           </div>
           <PlaceImages placeProps={place} allPhotos={setShowAllPhotos} />
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 my-8">
-            <div className=" bg-gray-300 h-fit p-4 rounded-2xl duration-300 shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 my-8 bg-gray-300 h-fit p-4 rounded-2xl duration-300 shadow-l">
+            <div className="g">
               <div className="mb-2">
                 <h2 className="font-semibold text-2xl">Description</h2>
                 <p className="">{place.description}</p>
@@ -89,6 +89,14 @@ export const PlacePage = () => {
             </div>
             <div className="">
               <Booking placeProps={place} />
+            </div>
+          </div>
+          <div className=" bg-gray-300 h-fit p-4 rounded-2xl duration-300 shadow-lg">
+            <div className="">
+              <h2 className="font-semibold text-2xl">Extra Information</h2>
+            </div>
+            <div className="text-md text-gray-600 leading-5 mb-4 mt-2">
+              {place.extraInfo}
             </div>
           </div>
         </div>

@@ -21,9 +21,6 @@ textarea {
 textarea {
   height: 150px;
 }
-/* .uploadBtn {
-  border: 0.5px solid #93acb8;
-} */
 
 button.primary {
   border: 1px solid #97b8ca;
@@ -40,4 +37,16 @@ input[type='checkbox'] {
   width: 1.2em;
   height: 1.2em;
   border-radius: 0.15em;
+}
+
+input[type='date'] {
+  background-color: #f0eeed;
+  @apply w-full border my-2 py-2 px-3 rounded-2xl border-slate-500;
+  cursor: pointer;
+}
+
+::-webkit-calendar-picker-indicator {
+  @apply bg-gray-400 rounded-full;
+  padding: 5px;
+  cursor: pointer;
 }
