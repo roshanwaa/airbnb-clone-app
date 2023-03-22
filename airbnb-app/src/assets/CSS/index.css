@@ -13,6 +13,7 @@ input[type='text'],
 input[type='email'],
 input[type='number'],
 input[type='password'],
+input[type='tel'],
 textarea {
   background-color: #f0eeed;
   @apply w-full border my-2 py-2 px-3 rounded-2xl border-slate-500 mt-4;
@@ -46,7 +47,7 @@ input[type='date'] {
 }
 
 ::-webkit-calendar-picker-indicator {
-  @apply bg-gray-400 rounded-full;
+  @apply bg-primary rounded-full;
   padding: 5px;
   cursor: pointer;
 }

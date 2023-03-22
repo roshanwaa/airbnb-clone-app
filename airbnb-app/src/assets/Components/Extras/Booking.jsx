@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { differenceInCalendarDays } from 'date-fns';
 
 export const Booking = ({ placeProps: place }) => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [numberOfGuest, setNumberOfGuest] = useState(1);
+  const [bookingName, setBookingName] = useState('');
+  const [bookingEmail, setBookingEmail] = useState('');
+  const [bookingMobileNo, setBookingMobileNo] = useState('');
 
   const onCheckInBookingHandler = (event) => {
     setCheckIn(event.target.value);
@@ -14,6 +18,23 @@ export const Booking = ({ placeProps: place }) => {
   const onNumberOfGuestBookingHandler = (event) => {
     setNumberOfGuest(event.target.value);
   };
+  const onNameBookingHandler = (event) => {
+    setBookingName(event.target.value);
+  };
+  const onEmailBookingHandler = (event) => {
+    setBookingEmail(event.target.value);
+  };
+  const onMobileBookingHandler = (event) => {
+    setBookingMobileNo(event.target.value);
+  };
+
+  let numOfNights = 0;
+  if (checkIn && checkOut) {
+    numOfNights = differenceInCalendarDays(
+      new Date(checkOut),
+      new Date(checkIn)
+    );
+  }
 
   return (
     <>
@@ -56,9 +77,43 @@ export const Booking = ({ placeProps: place }) => {
               value={numberOfGuest}
             />
           </div>
+          {numOfNights > 0 && (
+            <div className="p-4 border-t border-gray-400">
+              <label htmlFor="checkOut">Name: </label>
+              <input
+                type="text"
+                name="name"
+                id="newName"
+                onChange={onNameBookingHandler}
+                value={bookingName}
+                placeholder="Enter Your Name"
+              />
+              <label htmlFor="checkOut">Email: </label>
+              <input
+                type="email"
+                name="email"
+                id="newEmail"
+                onChange={onEmailBookingHandler}
+                value={bookingEmail}
+                placeholder="Enter Your Email"
+              />
+              <label htmlFor="checkOut">Phone Number: </label>
+              <input
+                type="tel"
+                name="tel"
+                id="newTel"
+                onChange={onMobileBookingHandler}
+                value={bookingMobileNo}
+                placeholder="Enter Your Phone Number"
+              />
+            </div>
+          )}
         </div>
 
-        <button className="primary">Book Now</button>
+        <button className="primary">
+          Book Now
+          {numOfNights > 0 && <span> ${numOfNights * place.price}</span>}
+        </button>
       </div>
     </>
   );
