@@ -216,6 +216,18 @@ app.get('/places/', async (req, res) => {
   res.json(await Place.find());
 });
 
+app.post('/booking', async (req, res) => {
+  const {
+    place,
+    checkIn,
+    checkOut,
+    numberOfGuests,
+    usrName,
+    usrEmail,
+    usrPhoneNumber,
+  } = req.body;
+});
+
 app.listen(4000, function () {
   console.log(`CORS-enabled web server listening on port 4000`);
 });
