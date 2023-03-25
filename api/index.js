@@ -13,6 +13,7 @@ const cookieParser = require('cookie-parser');
 const download = require('image-downloader');
 const multer = require('multer');
 const fs = require('fs');
+const Booking = require('./Models/Booking');
 require('dotenv').config();
 
 const bcryptSalt = bcrypt.genSaltSync(10);
@@ -216,16 +217,38 @@ app.get('/places/', async (req, res) => {
   res.json(await Place.find());
 });
 
-app.post('/booking', async (req, res) => {
+app.post('/bookings', (req, res) => {
   const {
     place,
     checkIn,
     checkOut,
     numberOfGuests,
-    usrName,
-    usrEmail,
-    usrPhoneNumber,
+    bookingName,
+    bookingEmail,
+    bookingMobileNo,
+    price,
   } = req.body;
+  Booking.create({
+    place,
+    checkIn,
+    checkOut,
+    numberOfGuests,
+    bookingName,
+    bookingEmail,
+    bookingMobileNo,
+    price,
+  })
+    .then((err, doc) => {
+      // if (err) throw err;
+      res.json(doc);
+    })
+    .catch((err) => {
+      throw err;
+    });
+});
+
+app.get('/bookings', async (req, res) => {
+  res.json(await Booking.find());
 });
 
 app.listen(4000, function () {

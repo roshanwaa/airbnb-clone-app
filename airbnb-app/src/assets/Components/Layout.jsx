@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from './Header';
-// import { Login } from './assets/Login';
 
 export const Layout = () => {
   return (

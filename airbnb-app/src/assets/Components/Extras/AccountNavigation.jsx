@@ -38,7 +38,7 @@ export const AccountNavigation = () => {
           </svg>
           Profile
         </Link>
-        <Link to={'/account/user-booking'} className={linkToClass('user-bookings')}>
+        <Link to={'/account/bookings'} className={linkToClass('bookings')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -54,7 +54,9 @@ export const AccountNavigation = () => {
           </svg>
           Bookings
         </Link>
-        <Link to={'/account/user-places'} className={linkToClass('user-places')}>
+        <Link
+          to={'/account/user-places'}
+          className={linkToClass('user-places')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

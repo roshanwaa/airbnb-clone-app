@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { differenceInCalendarDays } from 'date-fns';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 export const Booking = ({ placeProps: place }) => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
-  const [numberOfGuest, setNumberOfGuest] = useState(1);
+  const [numberOfGuests, setNumberOfGuests] = useState(1);
   const [bookingName, setBookingName] = useState('');
   const [bookingEmail, setBookingEmail] = useState('');
   const [bookingMobileNo, setBookingMobileNo] = useState('');
+  const [redirect, setRedirect] = useState('');
 
   const onCheckInBookingHandler = (event) => {
     setCheckIn(event.target.value);
@@ -16,7 +19,7 @@ export const Booking = ({ placeProps: place }) => {
     setCheckOut(event.target.value);
   };
   const onNumberOfGuestBookingHandler = (event) => {
-    setNumberOfGuest(event.target.value);
+    setNumberOfGuests(event.target.value);
   };
   const onNameBookingHandler = (event) => {
     setBookingName(event.target.value);
@@ -34,6 +37,26 @@ export const Booking = ({ placeProps: place }) => {
       new Date(checkOut),
       new Date(checkIn)
     );
+  }
+
+  const onBookingSubmitHandler = () => {
+    const responseData = axios.post('/bookings', {
+      place: place._id,
+      checkIn,
+      checkOut,
+      numberOfGuests,
+      bookingName,
+      bookingEmail,
+      bookingMobileNo,
+      price: numOfNights * place.price,
+    });
+
+    const bookingId = responseData.place._id;
+    setRedirect('/account/bookings/' + bookingId);
+  };
+
+  if (redirect) {
+    return <Navigate to={redirect} />;
   }
 
   return (
@@ -74,7 +97,7 @@ export const Booking = ({ placeProps: place }) => {
               name="maxGuests"
               id="maxGuests"
               onChange={onNumberOfGuestBookingHandler}
-              value={numberOfGuest}
+              value={numberOfGuests}
             />
           </div>
           {numOfNights > 0 && (
@@ -110,7 +133,7 @@ export const Booking = ({ placeProps: place }) => {
           )}
         </div>
 
-        <button className="primary">
+        <button className="primary mt-4" onClick={onBookingSubmitHandler}>
           Book Now
           {numOfNights > 0 && <span> ${numOfNights * place.price}</span>}
         </button>
